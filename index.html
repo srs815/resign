@@ -290,6 +290,7 @@
             padding-top: 20px;
             visibility: visible;
             display: block;
+            margin-bottom: 30px;
         }
 
         @media print {
@@ -309,8 +310,6 @@
                 $('#date').text(date);
                 $('.oldPosition').text($('#current-position').val());
                 $('.oldCompany').text($('#current-company').val());
-                $('.position').text($('#new-position').val());
-                $('.company').text($('#new-company').val());
             });
         });
     </script>
@@ -321,10 +320,6 @@
         <!-- Form Section -->
         <div id="formInput">
             <form>
-                <p class="formText">New Company:</p>
-                <input id="new-company" type="text" placeholder="New Company"><br>
-                <p class="formText">New Position:</p>
-                <input id="new-position" type="text" placeholder="New Position"><br>
                 <p class="formText">Current Company:</p>
                 <input id="current-company" type="text" placeholder="Current Company"><br>
                 <p class="formText">Current Position:</p>
@@ -364,7 +359,8 @@
                         <p class="resume_text">
                             This decision comes after careful consideration and reflects the direction I feel is right
                             for me at this time.
-                            I remain appreciative of the time I’ve spent with the company and of the opportunities I’ve
+                            I remain appreciative of the time I’ve spent with <span class="oldCompany">[Old
+                                Company]</span> and of the opportunities I’ve
                             had to grow
                             professionally.
                         </p>
@@ -399,17 +395,13 @@
             $('#submito').click(function () {
                 $('#resignationLetter').css('display', 'block');
 
-                var company = $('#new-company').val();
                 var oldCompany = $('#current-company').val();
-                var position = $('#new-position').val();
                 var oldPosition = $('#current-position').val();
                 var recipient = $('#recipient-name').val();
                 var lastDay = $('#last-day').val();
 
                 $('#date').text(formatDate(new Date()));
-                $('.company').text(company);
                 $('.oldCompany').text(oldCompany);
-                $('.position').text(position);
                 $('.oldPosition').text(oldPosition);
                 $('.recipientName').text(recipient);
                 $('.lastDay').text(formatDate(new Date(lastDay)));
